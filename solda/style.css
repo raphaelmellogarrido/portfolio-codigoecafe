@@ -1,230 +1,116 @@
-/* Reset Básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Arial Black", Gadget, sans-serif; /* Fonte mais bruta/industrial para títulos */
+/* ==========================================================================
+   TEMA INDUSTRIAL (EXCLUSIVO PARA O SITE DE SOLDA)
+   ========================================================================== */
+.tema-industrial {
+  background-color: #0d0f12; /* Um cinza-fumo quase negro, cor de oficina limpa */
+  color: #f1f5f9;
 }
 
-body {
-  background-color: #111215; /* Cinza grafite muito escuro */
-  color: #e2e8f0;
-}
-
-p {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Texto corrido limpo */
-}
-
-/* Header Rústico/Moderno */
-.sld-header {
-  background-color: #1a1c23;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 3px solid #f97316; /* Detalhe Laranja Faísca */
-}
-
-.sld-logo {
-  color: #ffffff;
-  font-size: 15pt;
-  font-weight: 900;
-  letter-spacing: 1px;
+/* Secção Hero Impactante e Assimétrica */
+.hero-solda {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 40px;
+  padding: 100px 20px;
+  background: radial-gradient(circle at top right, rgba(242, 142, 43, 0.1), transparent 50%);
 }
 
-.sld-logo i {
-  color: #f97316;
+.hero-solda-conteudo {
+  flex: 1;
 }
 
-.sld-nav a {
-  color: #94a3b8;
-  text-decoration: none;
-  margin-left: 25px;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 11pt;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.sld-nav a:hover {
-  color: #f97316;
-}
-
-.sld-btn-header {
-  border: 2px solid #f97316;
-  padding: 6px 16px;
-  color: #ffffff !important;
-  border-radius: 4px;
-}
-
-.sld-btn-header:hover {
-  background-color: #f97316;
-}
-
-/* BANNER PRINCIPAL (HERO SECTION) */
-.sld-hero {
-  position: relative;
-  height: 80vh;
-  min-height: 500px;
-  /* Imagem profissional de soldadura em alta definição */
-  background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding: 0 8%;
-}
-
-.sld-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Gradiente escuro para dar total leitura ao texto à esquerda */
-  background: linear-gradient(to right, rgba(17, 18, 21, 0.95), rgba(17, 18, 21, 0.4));
-  z-index: 1;
-}
-
-.sld-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-}
-
-.sld-hero-content span {
-  color: #f97316;
-  font-size: 9.5pt;
-  font-weight: 900;
-  letter-spacing: 2px;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.sld-hero-content h1 {
-  font-size: 32pt;
-  font-weight: 900;
+/* Tipografia com força e estilo "Stenciled" ou Industrial */
+.hero-solda h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   line-height: 1.1;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
-.sld-hero-content p {
-  font-size: 11.5pt;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 35px;
+/* O teu novo destaque: Laranja Brasa / Arco Voltaico */
+.destaque-solda {
+  color: #f28e2b; /* Laranja vibrante de metal aquecido ou faísca */
+  text-shadow: 0 0 20px rgba(242, 142, 43, 0.4);
+  font-weight: 800;
 }
 
-/* Botões do Banner */
-.sld-hero-buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.sld-btn-orange,
-.sld-btn-outline {
-  text-decoration: none;
-  padding: 14px 30px;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 11pt;
+/* Botão Estilo "Chapa de Aço" */
+.btn-industrial {
+  display: inline-block;
+  background-color: #f28e2b;
+  color: #0d0f12;
+  padding: 16px 32px;
   font-weight: 700;
-  border-radius: 4px;
-  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px; /* Bordas mais retas transmitem solidez */
+  text-decoration: none;
+  box-shadow: 0 4px 0px #b86214; /* Efeito 3D mecânico */
+  transition: all 0.1s ease;
 }
 
-.sld-btn-orange {
-  background-color: #f97316;
-  color: #ffffff;
+.btn-industrial:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0px #b86214;
 }
 
-.sld-btn-orange:hover {
-  background-color: #ea580c;
-  transform: translateY(-2px);
-}
-
-.sld-btn-outline {
-  border: 2px solid #94a3b8;
-  color: #ffffff;
-}
-
-.sld-btn-outline:hover {
-  border-color: #f97316;
-  color: #f97316;
-}
-
-/* Secção de Serviços */
-.sld-services {
-  padding: 80px 8%;
-  text-align: center;
-  background-color: #16171b;
-}
-
-.sld-services h2 {
-  font-size: 22pt;
-  color: #ffffff;
-  margin-bottom: 50px;
-  position: relative;
-}
-
-.sld-services h2::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #f97316;
-}
-
-.sld-services-grid {
+/* Grelha de Serviços "Bruta" (Em vez da lista vertical de advocacia) */
+.grelha-servicos-solda {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+  padding: 60px 20px;
 }
 
-.sld-service-card {
-  background-color: #1a1c23;
-  padding: 45px 30px;
-  border-radius: 6px;
-  border: 1px solid #232631;
-  transition: all 0.3s;
+/* Cards com aspeto de Painel Técnico / Chapa Cortada */
+.card-solda {
+  background-color: #161a22;
+  border-left: 4px solid #f28e2b; /* Linha de detalhe industrial */
+  border-top: 1px solid #242b37;
+  border-right: 1px solid #242b37;
+  border-bottom: 1px solid #242b37;
+  padding: 30px;
+  border-radius: 0 8px 8px 0;
+  transition: transform 0.3s ease;
 }
 
-.sld-service-card:hover {
-  border-color: #f97316;
-  transform: translateY(-5px);
-  background-color: #1e212b;
+.card-solda:hover {
+  transform: translateY(-5px) scale(1.02);
+  background-color: #1c212b;
 }
 
-.sld-service-card i {
-  font-size: 32pt;
-  color: #f97316;
-  margin-bottom: 20px;
-}
-
-.sld-service-card h3 {
-  font-size: 13pt;
+.card-solda h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.sld-service-card p {
-  font-size: 10pt;
+/* Badge Técnico de Especificação */
+.badge-tecnico {
+  display: inline-block;
+  font-size: 8pt;
+  background-color: #242b37;
   color: #94a3b8;
-  line-height: 1.6;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  margin-top: 15px;
 }
 
-/* Footer */
-.sld-footer {
-  background-color: #111215;
-  color: #475569;
-  text-align: center;
-  padding: 25px;
-  font-size: 9.5pt;
-  border-top: 1px solid #1a1c23;
+/* Responsividade para telemóvel */
+@media (max-width: 768px) {
+  .hero-solda {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .hero-solda h1 {
+    font-size: 2.5rem;
+  }
 }

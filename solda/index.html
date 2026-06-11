@@ -1,64 +1,44 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt-PT">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MetalForge | Soldadura e Estruturas Metálicas</title>
+    <title>Serralharia & Soldadura Técnica</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="solda_small.PNG" />
-    <!-- Ícones para o setor industrial -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    <!-- Menu de Navegação -->
-    <header class="sld-header">
-      <div class="sld-logo"><i class="ph ph-nut"></i> METALFORGE</div>
-      <nav class="sld-nav">
-        <a href="#">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#" class="sld-btn-header">Pedir Orçamento</a>
-      </nav>
-    </header>
 
-    <!-- HERO BANNER INDUSTRIAL -->
-    <section class="sld-hero">
-      <div class="sld-hero-overlay"></div>
-      <div class="sld-hero-content">
-        <span>SOLUÇÕES EM AÇO E METALOMECÂNICA</span>
-        <h1>Soldadura de alta precisão e estruturas sob medida</h1>
-        <p>Especialistas em processos MIG/MAG, TIG e Elétrodo revestido. Garantia de máxima resistência, rigor técnico e cumprimento de prazos em todos os projetos.</p>
-        <div class="sld-hero-buttons">
-          <a href="#" class="sld-btn-orange">Fale Connosco</a>
-          <a href="#servicos" class="sld-btn-outline">Ver Serviços</a>
+  <body class="tema-industrial">
+    <main>
+      <section class="hero-solda">
+        <div class="hero-solda-conteudo">
+          <h1>Fusão de Precisão e <span class="destaque-solda">Estruturas Robustas</span></h1>
+          <p>Soluções profissionais em soldadura industrial e serralharia por medida. Garantia de estanqueidade, resistência mecânica e acabamento técnico rigoroso.</p>
+          <a href="#" class="btn-industrial">Solicitar Orçamento Técnico</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Secção Curta de Especialidades -->
-    <section id="servicos" class="sld-services">
-      <h2>Nossas Especialidades</h2>
-      <div class="sld-services-grid">
-        <div class="sld-service-card">
-          <i class="ph ph-fire"></i>
-          <h3>Soldadura TIG / MIG-MAG / ELÉTRODO REVESTIDO</h3>
-          <p>Soldadura de alta qualidade em aço carbono, aço inoxidável e alumínio, com acabamento impecável.</p>
-        </div>
-        <div class="sld-service-card">
-          <i class="ph ph-blueprint"></i>
-          <h3>Estruturas Metálicas</h3>
-          <p>Fabrico e montagem de pavilhões, mezaninos, escadas industriais e suportes metálicos robustos.</p>
-        </div>
-        <div class="sld-service-card">
-          <i class="ph ph-wrench"></i>
-          <h3>Manutenção Industrial</h3>
-          <p>Reparações estruturais, reforço de soldas desgastadas e assistência técnica direta para fábricas e oficinas.</p>
-        </div>
-      </div>
-    </section>
+      <h2 style="text-align: center; text-transform: uppercase; letter-spacing: 1px; margin-top: 40px">Processos e Especialidades</h2>
 
-    <!-- Rodapé -->
-    <footer class="sld-footer">
-      <p>&copy; 2026 MetalForge Soldadura. Todos os direitos reservados.</p>
-    </footer>
+      <section class="grelha-servicos-solda">
+        <div class="card-solda">
+          <h3>👨‍🏭 Soldadura TIG</h3>
+          <p>Alta precisão em aço inoxidável e alumínio. Ideal para tubagens alimentares, componentes estéticos e juntas que exigem acabamento perfeito sem projeções.</p>
+          <span class="badge-tecnico">PROCESSO 141 / ISO 4063</span>
+        </div>
+
+        <div class="card-solda">
+          <h3>⚡ Soldadura MIG / MAG</h3>
+          <p>Produtividade e penetração excecionais em estruturas metálicas pesadas, chassis e reparações agrícolas ou industriais de grande porte.</p>
+          <span class="badge-tecnico">PROCESSO 135/131</span>
+        </div>
+
+        <div class="card-solda">
+          <h3>🔥 Serralharia por Medida</h3>
+          <p>Fabrico, corte e montagem de portões, guardas em inox, escadas industriais e estruturas metálicas personalizadas conforme o teu projeto.</p>
+          <span class="badge-tecnico">DESENHO + FABRICO</span>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
