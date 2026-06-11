@@ -590,7 +590,47 @@ main {
 /* ==========================================================================
    9. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
+
 @media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+
+  /* CORRIGIDO: Agora aponta para a classe certa e quebra o cálculo das 3 colunas */
+  .portfolio-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Ajusta também os cards do carrossel/projetos caso uses nessa página */
+  .card-projeto {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card-servico {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-secundario {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
   nav {
     flex-direction: column;
     gap: 15px;
