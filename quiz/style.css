@@ -1,0 +1,12 @@
+/* Efeito de transição suave nos botões do Quiz */
+.btn-opcao {
+  transition: all 0.2s ease-in-out;
+  border: 2px solid #dee2e6 !important;
+  font-weight: 500;
+}
+
+.btn-opcao:hover {
+  transform: translateY(-2px);
+  background-color: #f8f9fa;
+  border-color: #0d6efd !important;
+}

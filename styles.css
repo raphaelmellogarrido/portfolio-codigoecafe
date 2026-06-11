@@ -1,0 +1,617 @@
+/* ==========================================================================
+   1. RESET, VARIÁVEIS E DEFINIÇÕES BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-y: scroll; /* Evita o salto de página eliminando a oscilação do scroll */
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b111e; /* Azul-escuro profundo premium */
+  color: #e2e8f0; /* Texto claro com alto contraste */
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #cbd5e1; /* Cinza claro suave para leitura */
+}
+
+h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Utilitário: Cor de destaque vibrante em gradiente */
+.destaque {
+  background: linear-gradient(135deg, #164701, #7ed957);
+  background-clip: text; /* Adiciona esta linha padrão */
+  -webkit-background-clip: text; /* Mantém esta para navegadores mais antigos */
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E MENU DE NAVEGAÇÃO (HEADER & NAV)
+   ========================================================================== */
+header {
+  background-color: #111827; /* Tom ligeiramente mais claro que o body */
+  border-bottom: 1px solid #1f2937;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 18pt;
+  font-weight: 600;
+  color: #7ed957;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #94a3b8; /* Estado normal inativo */
+  font-weight: 500;
+  font-size: 11pt;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+.nav-links a.active {
+  color: #7ed957; /* Azul brilhante/cyan ativo */
+}
+
+/* ==========================================================================
+   3. ESTRUTURA PRINCIPAL (MAIN)
+   ========================================================================== */
+main {
+  flex: 1; /* Força o footer a colar abaixo no ecrã */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ==========================================================================
+   4. PÁGINA INICIAL: SECÇÃO HERO & QUEM SOMOS
+   ========================================================================== */
+/* Secção Hero (Apresentação de Impacto) */
+.hero-section {
+  padding: 80px 20px;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.hero-section h2 {
+  font-size: 1.8rem;
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+/* Alinhamento dos Botões Hero */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-principal {
+  background: linear-gradient(135deg, #1c5802);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+}
+
+.btn-secundario {
+  color: #308a09;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 20px;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.btn-secundario:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Bloco Quem Somos */
+.quem-somos-container {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 800px;
+  margin: 60px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.quem-somos-container h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.quem-somos-container p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.quem-somos-container strong {
+  color: #7ed957;
+  font-weight: 500;
+}
+
+.insta-block {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.logo-insta {
+  text-align: left;
+  margin-left: -8px;
+}
+
+/* ==========================================================================
+   5. COMPONENTE: CARROSSEL DE PROJETOS
+   ========================================================================== */
+
+/* O Contentor Pai */
+.portfolio-section {
+  display: grid;
+  /* Força cada uma das 3 colunas a ter exatamente 33% da largura do pai minus o gap */
+  grid-template-columns: repeat(3, calc(33.33% - 17px));
+  /* Centraliza a grelha inteira no ecrã */
+  justify-content: center;
+  /* Espaçamento entre os blocos */
+  gap: 25px;
+  max-width: 1400px; /* Aumentámos a largura máxima para dar mais palco às fotos */
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Cada Card de Imagem */
+.card-portfolio-item {
+  background-color: #111827;
+  border: 3px solid #7ed957; /* O teu contorno verde limão */
+  border-radius: 8px;
+
+  /* DIMENSÕES MAIORES: */
+  /* Mudamos a proporção para 4/3 (mais quadrado/alto) ou podes definir uma altura fixa */
+  aspect-ratio: 4 / 3;
+  /* Se preferires controlar por altura fixa em vez de proporção, podes usar: height: 350px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Garante que a imagem não sai para fora das bordas arredondadas */
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Quando começares a meter as tags <img> reais lá dentro, usa isto: */
+.card-portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a foto preencher o bloco todo sem ficar distorcida ou esticada */
+}
+
+.card-portfolio-item:hover {
+  transform: scale(1.03); /* Efeito de zoom ligeiro para destacar a imagem maior */
+  box-shadow: 0 15px 30px rgba(126, 217, 87, 0.25);
+}
+
+/* 1. Faz o link (a href) ocupar 100% da largura e altura do card */
+.card-portfolio-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 2. Garante que a imagem preenche o link por completo e remove a folga de texto */
+.card-portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem cobrir o card perfeitamente sem distorcer */
+  display: block; /* Remove o espaço invisível de texto que fica por baixo */
+}
+
+.carrossel-projetos,
+#projetos {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carrossel-projetos::-webkit-scrollbar {
+  display: none; /* Esconde barra feia no Chrome/Safari */
+}
+
+#projetos h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Setas do Carrossel */
+.seta-carrossel {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7ed957;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.seta-carrossel:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.seta-esquerda {
+  left: 0;
+}
+.seta-direita {
+  right: 0;
+}
+
+/* ==========================================================================
+   6. COMPONENTE CARD: PROJETOS E SERVIÇOS (ESTILO UNIFICADO)
+   ========================================================================== */
+.card-projeto,
+.card-servico {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 25px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Comportamento específico do Card de Projetos (Imagens e Info) */
+.card-projeto {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 180px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  padding: 0; /* Imagem estica até às bordas */
+}
+
+.card-projeto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-projeto {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(17, 24, 39, 0.85); /* Overlay escuro semitransparente */
+  backdrop-filter: blur(4px);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.info-projeto a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.info-projeto h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 11pt;
+  transition: color 0.2s;
+}
+
+.info-projeto a:hover h3 {
+  color: #7ed957;
+}
+
+/* Comportamento específico do Card de Serviços */
+.lista-servicos {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.lista-servicos h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.card-servico {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.icone-servico {
+  font-size: 24pt;
+  color: #7ed957;
+  background-color: #1f2937;
+  padding: 15px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 65px;
+}
+
+.info-servico h3 {
+  font-size: 14pt;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.info-servico p {
+  color: #94a3b8;
+}
+
+/* Efeito de Hover Unificado nos Cards */
+.card-projeto:hover,
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+}
+
+/* ==========================================================================
+   7. PÁGINA DE CONTACTO & MOLDURAS CORRIGIDAS
+   ========================================================================== */
+.contacto-container {
+  background: transparent; /* Remove a div duplicada exterior */
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.formulario-contacto {
+  background-color: #111827; /* Apenas uma moldura ativa tipo card */
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.titulo-formulario {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.titulo_servicos {
+  text-align: center;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.grupo-campo label {
+  font-weight: 500;
+  font-size: 11pt;
+  color: #cbd5e1;
+}
+
+.grupo-campo input,
+.grupo-campo textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #1f2937;
+  border: 1px solid #334155;
+  color: #ffffff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 11pt;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.grupo-campo input::placeholder,
+.grupo-campo textarea::placeholder {
+  color: #64748b;
+}
+
+.grupo-campo input:focus,
+.grupo-campo textarea:focus {
+  border-color: #7ed957;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  background-color: #1f2937;
+}
+
+.grupo-campo textarea {
+  resize: vertical;
+}
+
+.botao-enviar {
+  background: linear-gradient(135deg, #236d04);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.botao-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+  filter: brightness(1.1);
+}
+
+/* Mensagem de Sucesso */
+#mensagem-sucesso {
+  background-color: #111827;
+  border: 2px solid #7ed957;
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Customização do Plugin de Telefone (intl-tel-input) */
+.iti {
+  width: 100%;
+}
+
+.iti input#tlmv {
+  padding-left: 90px !important; /* Mantido para não quebrar a bandeira */
+}
+
+.iti__country-list {
+  border: 1px solid #334155;
+  background-color: #1f2937;
+  color: #ffffff;
+  z-index: 10;
+}
+
+.iti__country:hover {
+  background-color: #334155;
+}
+
+/* ==========================================================================
+   8. RODAPÉ (FOOTER)
+   ========================================================================== */
+#main-footer {
+  background-color: #111827;
+  border-top: 1px solid #1f2937;
+  color: #f8fafc;
+  text-align: center;
+  padding: 20px;
+  font-size: 10pt;
+  width: 100%;
+  margin-top: auto;
+}
+
+#main-footer p {
+  opacity: 0.8;
+  margin: 0;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+  .card-servico {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-secundario {
+    text-align: center;
+  }
+}
