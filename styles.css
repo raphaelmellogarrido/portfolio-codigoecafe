@@ -590,7 +590,7 @@ main {
 /* ==========================================================================
    9. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   nav {
     flex-direction: column;
     gap: 15px;
