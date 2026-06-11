@@ -15,36 +15,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 3. Um único evento de Submit para controlar tudo
+  // 3. Controlo do envio do formulário via AJAX (Sem recarregar a página)
   if (meuFormulario) {
     meuFormulario.addEventListener("submit", function (evento) {
-      // Para imediatamente o envio padrão para podermos validar primeiro
+      // Para o envio padrão do HTML para usarmos o Fetch API
       evento.preventDefault();
 
-      // Validação inteligente usando a própria biblioteca
-      // Ela verifica se o número é válido de acordo com o país selecionado
+      // Validação inteligente do número de telemóvel
       if (iti && !iti.isValidNumber()) {
         alert("Por favor, introduza um número de telemóvel válido para o país selecionado.");
-        return; // Para a execução aqui e não envia o formulário
+        return; // Trava a execução aqui se o número estiver errado
       }
 
-      // Se passou na validação acima, faz o envio via Fetch API (AJAX)
-      const dadosFormulario = new FormData(meuFormulario);
-      dadosFormulario.append("form-name", "contacto");
-
-      fetch("/", {
+      // Envia os dados diretamente para o endpoint de AJAX do FormSubmit
+      fetch("https://formsubmit.co/ajax/raphaelmellogarrido@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(dadosFormulario).toString(),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nome: meuFormulario.nome.value,
+          email: meuFormulario.email.value,
+          tlmv: iti.getNumber(), // Envia o número já com o indicativo internacional (ex: +351...)
+          mensagem: meuFormulario.mensagem.value,
+        }),
       })
-        .then(() => {
-          // Se deu certo, esconde o formulário e mostra a mensagem de sucesso!
-          meuFormulario.style.display = "none";
-          divSucesso.style.display = "block";
+        .then((resposta) => {
+          if (resposta.ok) {
+            // Se o servidor aceitou, esconde o formulário e mostra a mensagem de sucesso
+            meuFormulario.style.display = "none";
+            divSucesso.style.display = "block";
+          } else {
+            alert("Ops! Ocorreu um erro ao enviar. Por favor, tenta novamente.");
+          }
         })
         .catch((erro) => {
           alert("Ops! Ocorreu um erro ao enviar. Por favor, tenta novamente.");
-          console.error(erro);
+          console.error("Erro na requisição:", erro);
         });
     });
   }
